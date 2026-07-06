@@ -1,0 +1,107 @@
+CREATE DATABASE AmazonSalesDB;
+USE AmazonSalesDB;
+
+CREATE TABLE AmazonSales (
+    OrderID INT PRIMARY KEY,
+    OrderDate DATE,
+    CustomerName VARCHAR(50),
+    ProductName VARCHAR(100),
+    Category VARCHAR(50),
+    Region VARCHAR(30),
+    Quantity INT,
+    UnitPrice DECIMAL(10,2),
+    Discount DECIMAL(10,2),
+    SalesAmount DECIMAL(10,2),
+    Profit DECIMAL(10,2),
+    PaymentMode VARCHAR(20)
+);
+
+
+
+INSERT INTO AmazonSales VALUES
+(1001,'2026-01-01','Arun','Laptop','Electronics','Chennai',2,55000,5000,105000,18000,'UPI'),
+(1002,'2026-01-02','Priya','Mobile','Electronics','Coimbatore',3,25000,2000,73000,12000,'Card'),
+(1003,'2026-01-03','Ravi','Keyboard','Accessories','Madurai',5,1500,100,7400,2000,'Cash'),
+(1004,'2026-01-04','Divya','Mouse','Accessories','Salem',8,700,50,5550,1400,'UPI'),
+(1005,'2026-01-05','Kiran','Monitor','Electronics','Trichy',2,12000,500,23500,5000,'Card'),
+(1006,'2026-01-06','Anitha','Printer','Electronics','Chennai',1,15000,1000,14000,3000,'Cash'),
+(1007,'2026-01-07','Vijay','Chair','Furniture','Madurai',4,3500,500,13500,4000,'UPI'),
+(1008,'2026-01-08','Sneha','Table','Furniture','Coimbatore',2,6500,500,12500,3000,'Card'),
+(1009,'2026-01-09','Ajay','Headphones','Accessories','Salem',6,2500,300,14700,3500,'Cash'),
+(1010,'2026-01-10','Nisha','Camera','Electronics','Chennai',1,45000,5000,40000,9000,'UPI'),
+
+(1011,'2026-01-11','Hari','Laptop','Electronics','Madurai',1,55000,3000,52000,10000,'Card'),
+(1012,'2026-01-12','Pooja','Mobile','Electronics','Trichy',2,25000,1000,49000,8000,'UPI'),
+(1013,'2026-01-13','Sathish','Keyboard','Accessories','Salem',3,1500,0,4500,1200,'Cash'),
+(1014,'2026-01-14','Keerthi','Mouse','Accessories','Chennai',10,700,200,6800,1800,'UPI'),
+(1015,'2026-01-15','Ramesh','Monitor','Electronics','Coimbatore',1,12000,500,11500,2500,'Card'),
+(1016,'2026-01-16','Lakshmi','Printer','Electronics','Madurai',2,15000,1500,28500,6000,'Cash'),
+(1017,'2026-01-17','Manoj','Chair','Furniture','Trichy',5,3500,500,17000,4500,'UPI'),
+(1018,'2026-01-18','Deepa','Table','Furniture','Salem',1,6500,0,6500,1500,'Card'),
+(1019,'2026-01-19','Ganesh','Headphones','Accessories','Chennai',4,2500,200,9800,2500,'Cash'),
+(1020,'2026-01-20','Asha','Camera','Electronics','Coimbatore',2,45000,3000,87000,18000,'UPI'),
+
+(1021,'2026-01-21','Rohit','Laptop','Electronics','Salem',1,55000,2000,53000,9500,'Card'),
+(1022,'2026-01-22','Swathi','Mobile','Electronics','Madurai',4,25000,4000,96000,16000,'UPI'),
+(1023,'2026-01-23','Kavya','Keyboard','Accessories','Chennai',6,1500,300,8700,2200,'Cash'),
+(1024,'2026-01-24','Bala','Mouse','Accessories','Trichy',5,700,100,3400,900,'Card'),
+(1025,'2026-01-25','Saranya','Monitor','Electronics','Coimbatore',3,12000,1000,35000,7000,'UPI'),
+(1026,'2026-01-26','Dinesh','Printer','Electronics','Chennai',2,15000,500,29500,6500,'Cash'),
+(1027,'2026-01-27','Megha','Chair','Furniture','Madurai',3,3500,300,10200,2500,'Card'),
+(1028,'2026-01-28','Kumar','Table','Furniture','Salem',2,6500,500,12500,3000,'UPI'),
+(1029,'2026-01-29','Anu','Headphones','Accessories','Trichy',5,2500,500,12000,2800,'Cash'),
+(1030,'2026-01-30','Vimal','Camera','Electronics','Chennai',1,45000,2000,43000,8500,'Card');
+
+select * from AmazonSales
+
+SELECT SUM(SalesAmount) AS TotalSales
+FROM AmazonSales;
+
+SELECT SUM(Profit) AS TotalProfit
+FROM AmazonSales;
+
+SELECT SUM(Profit) AS TotalProfit
+FROM AmazonSales;
+
+SELECT Category,
+SUM(SalesAmount) AS Sales
+FROM AmazonSales
+GROUP BY Category
+ORDER BY Sales DESC;
+
+SELECT Category,
+SUM(SalesAmount) AS Sales
+FROM AmazonSales
+GROUP BY Category
+ORDER BY Sales DESC;
+
+
+SELECT TOP 5
+ProductName,
+SUM(SalesAmount) AS Sales
+FROM AmazonSales
+GROUP BY ProductName
+ORDER BY Sales DESC;
+
+
+SELECT TOP 5
+ProductName,
+SUM(SalesAmount) AS Sales
+FROM AmazonSales
+GROUP BY ProductName
+ORDER BY Sales DESC;
+
+SELECT
+DATENAME(MONTH, OrderDate) AS Month,
+SUM(SalesAmount) AS Sales
+FROM AmazonSales
+GROUP BY DATENAME(MONTH, OrderDate), MONTH(OrderDate)
+ORDER BY MONTH(OrderDate);
+
+
+SELECT
+DATENAME(MONTH, OrderDate) AS Month,
+SUM(SalesAmount) AS Sales
+FROM AmazonSales
+GROUP BY DATENAME(MONTH, OrderDate), MONTH(OrderDate)
+ORDER BY MONTH(OrderDate);
