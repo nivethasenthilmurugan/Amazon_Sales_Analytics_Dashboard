@@ -1,0 +1,4 @@
+Total Sales = SUM(AmazonSales[SalesAmount])
+Total Profit = SUM(AmazonSales[Profit])
+Total Profit = SUM(AmazonSales[Profit])
+Average Order Value = AVERAGE(AmazonSales[SalesAmount])
